@@ -24,4 +24,15 @@ router.get('/google/redirect',passport.authenticate('google'),(req,res)=>{
     res.redirect('/profile/');
 });
 
+router.get('/facebook',passport.authenticate('facebook',
+{
+    scope:['email','user_friends']
+}
+));
+
+router.get('/facebook/redirect',passport.authenticate('facebook'),(req,res)=>{
+    // res.send(req.user);
+    res.redirect('/profile/');
+});
+
 module.exports=router;
